@@ -1,5 +1,6 @@
 $ = jQuery = require('jquery');
+var React = require('react');
+var Home = require('./components/HomePage');
 
-var App = console.log('Hello world from Browserify');
 
-module.exports = App;
+React.render(<Home/>, document.getElementById('app'));
