@@ -8,15 +8,15 @@ var FormPage = React.createClass({
   getInitialState: function() {
     return {
       fields: {
-        CompanySettings: 'NOT_IMPORT',
-        AccountSettings: 'NOT_IMPORT',
-        AnalysisPlans: 'NOT_IMPORT',
-        Reconciliation: 'NOT_IMPORT',
-        DataMergeRules: 'NOT_IMPORT',
-        ImportProfiles: 'NOT_IMPORT',
-        ReportTemplates: 'NOT_IMPORT',
-        LookupTables: 'NOT_IMPORT',
-        Users: 'NOT_IMPORT'
+        CompanySettings: '0',
+        AccountSettings: '0',
+        AnalysisPlans: '0',
+        Reconciliation: '0',
+        DataMergeRules: '0',
+        ImportProfiles: '0',
+        ReportTemplates: '0',
+        LookupTables: '0',
+        Users: '0'
       }
     }
   },
@@ -26,12 +26,22 @@ var FormPage = React.createClass({
     this.state.fields[field] = value;
     return this.setState({fields: this.state.fields});
   },
+  selectAll: function (event) {
+    var field = event.target.name;
+    var value = event.target.value;
+
+    for (var prop in this.state.fields) {
+      this.state.fields[prop] = value;
+    }
+
+    return this.setState({ fields: this.state.fields });
+  },
   submit: function() {
     console.log(this.state);
   },
   render: function () {
     return (
-        <SettingsForm onChange={this.setFormState} onSubmit={this.submit} name="Import Form"/>
+        <SettingsForm onChange={this.setFormState} selectAll={this.selectAll} onSubmit={this.submit} name="Import Form"/>
     );
   }
 });
