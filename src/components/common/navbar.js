@@ -1,6 +1,8 @@
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Navbar = React.createClass({
   render: function () {
@@ -15,14 +17,14 @@ var Navbar = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">Searchify</a>
+            <Link className="navbar-brand" to="app">Searchify</Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li className="active"><a>Home</a></li>
-              <li><a >Forms</a></li>
-              <li><a >Calendar</a></li>
-              <li><a >About</a></li>
+              <li className="active"><Link to="app">Home</Link></li>
+              <li><Link to="forms">Forms</Link></li>
+              <li><Link to="calendar">Calendar</Link></li>
+              <li><Link to="about">About</Link></li>
             </ul>
           </div>
         </div>
